@@ -8,7 +8,10 @@ const app = express();
 const port = process.env.PORT || 3000; // Vercel auto sets PORT
 
 // Configuration with Environment Variables
-const botToken = process.env.BOT_TOKEN || '7531416274:AAHorYiGoF6scbCUYal3hb7xkFgP9OkQsM4'; // Replace with new token or remove after env setup
+const botToken = process.env.BOT_TOKEN; // Must be set in Vercel Environment Variables
+if (!botToken) {
+    throw new Error('BOT_TOKEN environment variable is not set');
+}
 const adminId = 7414451693;
 const adReward = 15;
 const extraReward = 20;
