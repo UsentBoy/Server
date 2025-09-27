@@ -7,8 +7,8 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000; // Vercel auto sets PORT
 
-// Configuration
-const botToken = '7531416274:AAGgjz1FE-a35WnwLIDIUUp7X1emPiCbGrI'; // Use env var in production: process.env.BOT_TOKEN
+// Configuration with Environment Variables
+const botToken = process.env.BOT_TOKEN || '7531416274:AAHorYiGoF6scbCUYal3hb7xkFgP9OkQsM4'; // Replace with new token or remove after env setup
 const adminId = 7414451693;
 const adReward = 15;
 const extraReward = 20;
@@ -188,5 +188,5 @@ app.post('/api/admin/reject-withdrawal', auth, async (req, res) => {
     res.json({ success: true });
 });
 
-// Export for Vercel (do not use app.listen in serverless)
+// Export for Vercel
 module.exports = app;
